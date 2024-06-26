@@ -17,7 +17,7 @@ Model untuk menjalankan aplikasi backend dapat didownload di: https://drive.goog
 ## Backend
 ### 1. Buat virtual environment dengan:
 - python3 -m venv venv
-- venv\Scripts\activate (Windows) | source venv/Scripts/activate
+- venv\Scripts\activate (Windows) | source venv/Scripts/activate (MacOS dan Linux)
 ### 2. Install requirements
 pip install -r requirements.txt
 ### 4. Download file model yang disediakan pada link di atas, kemudian taruh di dmml-BE/app/ dengan nama model.pkl
