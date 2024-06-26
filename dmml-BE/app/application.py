@@ -18,7 +18,7 @@ class Application:
     volatility_20: float
     volatility_50: float
 
-    def __init__(self, open: float, high: float, low: float, volume: int, year: int, month: int, day: int, day_of_week: int, quarter: int, sma_20: float, sma_50: float, sma_100: float, return_: float, volatility_20: float, volatility_50: float):
+    def __init__(self, open: float, high: float, low: float, volume: int, year: int, month: int, day: int, day_of_week: int, sma_20: float, sma_50: float, sma_100: float, return_: float, volatility_20: float, volatility_50: float):
         self.open = open
         self.high = high
         self.low = low
@@ -27,7 +27,14 @@ class Application:
         self.month = month
         self.day = day
         self.day_of_week = day_of_week
-        self.quarter = quarter
+        if int(month) <= 3:
+            self.quarter = 1  # January, February, March
+        elif int(month) <= 6:
+            self.quarter = 2  # April, May, June
+        elif int(month) <= 9:
+            self.quarter = 3  # July, August, September
+        else:
+            self.quarter = 4  # October, November, December
         self.sma_20 = sma_20
         self.sma_50 = sma_50
         self.sma_100 = sma_100

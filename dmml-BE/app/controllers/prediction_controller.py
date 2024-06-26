@@ -20,7 +20,6 @@ def predict():
         month = data.get('month')
         day = data.get('day')
         day_of_week = data.get('day_of_week')
-        quarter = data.get('quarter')
         sma_20 = data.get('sma_20')
         sma_50 = data.get('sma_50')
         sma_100 = data.get('sma_100')
@@ -29,7 +28,7 @@ def predict():
         volatility_50 = data.get('volatility_50')
 
         # Validate the required fields
-        required_fields = ['open', 'high', 'low', 'volume', 'year', 'month', 'day', 'day_of_week', 'quarter', 'sma_20',
+        required_fields = ['open', 'high', 'low', 'volume', 'year', 'month', 'day', 'day_of_week', 'sma_20',
                            'sma_50', 'sma_100', 'return', 'volatility_20', 'volatility_50']
         missing_fields = [field for field in required_fields if data.get(field) is None]
 
@@ -37,7 +36,7 @@ def predict():
             return jsonify({"error": f"Missing fields: {', '.join(missing_fields)}"}), 400
 
         # Create an instance of the Application class
-        model = Application(open_price, high_price, low_price, volume, year, month, day, day_of_week, quarter, sma_20, sma_50, sma_100, return_rate, volatility_20, volatility_50)
+        model = Application(open_price, high_price, low_price, volume, year, month, day, day_of_week, sma_20, sma_50, sma_100, return_rate, volatility_20, volatility_50)
 
         output = jsonify({
             'close': model.run()
